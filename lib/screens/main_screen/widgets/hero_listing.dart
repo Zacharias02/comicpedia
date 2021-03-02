@@ -1,6 +1,7 @@
 import 'package:heropedia/blocs/heroes_bloc/heroes_bloc.dart';
 import 'package:heropedia/constants/style.dart';
-import 'package:heropedia/models/hero/hero_model.dart';
+import 'package:heropedia/models/heroes/heroes_model.dart';
+import 'package:heropedia/screens/hero_details_screen/hero_details_screen.dart';
 import 'package:heropedia/screens/main_screen/widgets/hero_image_listing_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -38,10 +39,18 @@ class HeroListing extends StatelessWidget {
               children: state.heroResult
                   .map(
                     (Result hero) => HeroImageListingContainer(
+                      heroId: hero.heroId,
                       imageUrl: hero.imageUrl,
                       heroFullName: hero.heroFullName,
                       onTapped: () {
-                        print('');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HeroDetailsScreen(
+                              hero: hero,
+                            ),
+                          ),
+                        );
                       },
                     ),
                   )

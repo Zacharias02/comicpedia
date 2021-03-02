@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class HeroImageListingContainer extends StatelessWidget {
+  final String heroId;
   final String imageUrl;
   final String heroFullName;
   final Function onTapped;
 
   const HeroImageListingContainer({
     Key key,
+    this.heroId,
     this.imageUrl,
     this.heroFullName,
     this.onTapped,
@@ -26,20 +28,23 @@ class HeroImageListingContainer extends StatelessWidget {
         child: Stack(
           fit: StackFit.expand,
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(8.0),
-              child: CachedNetworkImage(
-                fit: BoxFit.cover,
-                imageUrl: imageUrl,
-                progressIndicatorBuilder: (_, url, __) {
-                  return Center(
-                    child: SpinKitFadingCircle(
-                      size: 40,
-                      color: kColorLightGrey,
-                    ),
-                  );
-                },
-                errorWidget: (context, url, error) => Icon(Icons.error),
+            Hero(
+              tag: heroId,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8.0),
+                child: CachedNetworkImage(
+                  fit: BoxFit.cover,
+                  imageUrl: imageUrl,
+                  progressIndicatorBuilder: (_, url, __) {
+                    return Center(
+                      child: SpinKitFadingCircle(
+                        size: 40,
+                        color: kColorLightGrey,
+                      ),
+                    );
+                  },
+                  errorWidget: (context, url, error) => Icon(Icons.error),
+                ),
               ),
             ),
             Padding(

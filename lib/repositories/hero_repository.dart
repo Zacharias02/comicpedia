@@ -1,5 +1,5 @@
-import 'package:heropedia/models/hero/hero_model.dart';
 import 'package:dio/dio.dart';
+import 'package:heropedia/models/heroes/heroes_model.dart';
 
 class HeroRepository {
   HeroRepository();
@@ -7,8 +7,8 @@ class HeroRepository {
   static const _baseUrl =
       'https://superheroapi.com/api/3778234892222363/search/superman';
 
-  Future<Hero> getHeroes() async {
+  Future<Heroes> getHeroes() async {
     final response = await Dio().get(_baseUrl);
-    return Hero.fromJson(response.data);
+    return Heroes.fromJson(response.data);
   }
 }

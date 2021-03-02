@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import 'package:heropedia/models/hero/hero_model.dart';
+import 'package:heropedia/models/heroes/heroes_model.dart';
 import 'package:heropedia/repositories/hero_repository.dart';
 import 'package:equatable/equatable.dart';
 
@@ -20,7 +20,7 @@ class HeroesBloc extends Bloc<HeroesEvent, HeroesState> {
       yield HeroesLoading();
 
       try {
-        final Hero heroes = await heroRepository.getHeroes();
+        final Heroes heroes = await heroRepository.getHeroes();
 
         yield HeroesFetched(heroResult: heroes?.heroList);
       } catch (err) {

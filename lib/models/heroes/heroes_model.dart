@@ -1,8 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
-part 'hero_model.g.dart';
+part 'heroes_model.g.dart';
 
 @JsonSerializable()
-class Hero {
+class Heroes {
   final String response;
 
   @JsonKey(name: 'results-for')
@@ -10,15 +10,15 @@ class Hero {
 
   final List<Result> results;
 
-  Hero(
+  Heroes(
     this.response,
     this.resultsFor,
     this.results,
   );
 
-  factory Hero.fromJson(Map<String, dynamic> json) => _$HeroFromJson(json);
+  factory Heroes.fromJson(Map<String, dynamic> json) => _$HeroesFromJson(json);
 
-  Map<String, dynamic> toJson() => _$HeroToJson(this);
+  Map<String, dynamic> toJson() => _$HeroesToJson(this);
 
   List<Result> get heroList => results;
 }
@@ -62,6 +62,7 @@ class Result {
 
   Map<String, dynamic> toJson() => _$ResultToJson(this);
 
+  String get heroId => id ?? '';
   String get imageUrl => heroImage?.url;
   String get heroFullName => heroName ?? '';
 

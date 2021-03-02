@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'hero_model.dart';
+part of 'heroes_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Hero _$HeroFromJson(Map<String, dynamic> json) {
-  return Hero(
+Heroes _$HeroesFromJson(Map<String, dynamic> json) {
+  return Heroes(
     json['response'] as String,
     json['results-for'] as String,
     (json['results'] as List)
@@ -17,7 +17,7 @@ Hero _$HeroFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$HeroToJson(Hero instance) => <String, dynamic>{
+Map<String, dynamic> _$HeroesToJson(Heroes instance) => <String, dynamic>{
       'response': instance.response,
       'results-for': instance.resultsFor,
       'results': instance.results,
