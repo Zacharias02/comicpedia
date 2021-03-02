@@ -1,7 +1,7 @@
-import 'package:comicpedia/blocs/heroes_bloc/heroes_bloc.dart';
-import 'package:comicpedia/constants/style.dart';
-import 'package:comicpedia/models/hero/hero_model.dart';
-import 'package:comicpedia/screens/main_screen/widgets/hero_image_listing_container.dart';
+import 'package:heropedia/blocs/heroes_bloc/heroes_bloc.dart';
+import 'package:heropedia/constants/style.dart';
+import 'package:heropedia/models/hero/hero_model.dart';
+import 'package:heropedia/screens/main_screen/widgets/hero_image_listing_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';

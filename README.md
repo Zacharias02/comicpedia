@@ -1,4 +1,4 @@
-# comicpedia
+# heropedia
 
 A new Flutter project.
 

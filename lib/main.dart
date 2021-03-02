@@ -1,6 +1,6 @@
-import 'package:comicpedia/blocs/heroes_bloc/heroes_bloc.dart';
-import 'package:comicpedia/repositories/hero_repository.dart';
-import 'package:comicpedia/screens/main_screen/main_screen.dart';
+import 'package:heropedia/blocs/heroes_bloc/heroes_bloc.dart';
+import 'package:heropedia/repositories/hero_repository.dart';
+import 'package:heropedia/screens/main_screen/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

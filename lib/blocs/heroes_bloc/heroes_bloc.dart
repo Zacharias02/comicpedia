@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import 'package:comicpedia/models/hero/hero_model.dart';
-import 'package:comicpedia/repositories/hero_repository.dart';
+import 'package:heropedia/models/hero/hero_model.dart';
+import 'package:heropedia/repositories/hero_repository.dart';
 import 'package:equatable/equatable.dart';
 
 part 'heroes_event.dart';

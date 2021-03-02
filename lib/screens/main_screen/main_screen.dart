@@ -1,6 +1,6 @@
-import 'package:comicpedia/constants/style.dart';
-import 'package:comicpedia/screens/global_widgets/reactive_input_field.dart';
-import 'package:comicpedia/screens/main_screen/widgets/hero_listing.dart';
+import 'package:heropedia/constants/style.dart';
+import 'package:heropedia/screens/global_widgets/reactive_input_field.dart';
+import 'package:heropedia/screens/main_screen/widgets/hero_listing.dart';
 import 'package:flutter/material.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
@@ -51,7 +51,7 @@ class MainScreen extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 30.0),
                       child: Text(
-                        'Lorem asdasdasdddddddddddddddddddddddddddddddddddddddddddddddddd',
+                        'You can search all superheroes and villians data from all universes.',
                         style: TextStyle(
                           color: kColorWhite,
                           fontSize: 15,

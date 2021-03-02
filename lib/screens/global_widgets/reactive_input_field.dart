@@ -1,4 +1,4 @@
-import 'package:comicpedia/constants/style.dart';
+import 'package:heropedia/constants/style.dart';
 import 'package:flutter/material.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 

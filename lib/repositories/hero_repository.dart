@@ -1,4 +1,4 @@
-import 'package:comicpedia/models/hero/hero_model.dart';
+import 'package:heropedia/models/hero/hero_model.dart';
 import 'package:dio/dio.dart';
 
 class HeroRepository {

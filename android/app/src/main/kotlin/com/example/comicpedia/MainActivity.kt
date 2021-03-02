@@ -1,4 +1,4 @@
-package com.example.comicpedia
+package com.example.heropedia
 
 import io.flutter.embedding.android.FlutterActivity
 
