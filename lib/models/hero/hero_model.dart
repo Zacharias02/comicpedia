@@ -62,6 +62,9 @@ class Result {
 
   Map<String, dynamic> toJson() => _$ResultToJson(this);
 
+  String get imageUrl => heroImage?.url;
+  String get heroFullName => heroName ?? '';
+
   // String get heroName {
   //   String heroName = '';
   //   results.forEach((element) {

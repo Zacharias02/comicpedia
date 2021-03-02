@@ -38,7 +38,11 @@ class HeroListing extends StatelessWidget {
               children: state.heroResult
                   .map(
                     (Result hero) => HeroImageListingContainer(
-                      imageUrl: hero?.heroImage?.url,
+                      imageUrl: hero.imageUrl,
+                      heroFullName: hero.heroFullName,
+                      onTapped: () {
+                        print('');
+                      },
                     ),
                   )
                   .toList(),
