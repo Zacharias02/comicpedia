@@ -20,15 +20,11 @@ class ReactiveInputField extends StatelessWidget {
       padding: EdgeInsets.fromLTRB(8, 20, 8, 0),
       child: ReactiveTextField(
         formControlName: formControlName,
-        style: TextStyle(
-          color: kColorWhite,
-        ),
+        style: kTextRegular.copyWith(fontSize: 16),
         decoration: InputDecoration(
           contentPadding: EdgeInsets.all(10),
           hintText: hintText,
-          hintStyle: TextStyle(
-            color: kColorLightGrey,
-          ),
+          hintStyle: kTextSemiBold.copyWith(color: kColorLightGrey),
           prefixIcon: prefixIcon,
           filled: true,
           fillColor: kColorDarkrGreyLight,

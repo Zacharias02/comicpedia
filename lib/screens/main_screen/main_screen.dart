@@ -1,5 +1,6 @@
 import 'package:heropedia/constants/style.dart';
 import 'package:heropedia/screens/global_widgets/reactive_input_field.dart';
+import 'package:heropedia/screens/main_screen/widgets/header_content.dart';
 import 'package:heropedia/screens/main_screen/widgets/hero_listing.dart';
 import 'package:flutter/material.dart';
 import 'package:reactive_forms/reactive_forms.dart';
@@ -34,35 +35,7 @@ class MainScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Center(
-              child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 10.0),
-                child: Column(
-                  children: [
-                    Text(
-                      'Pick your superhero'.toUpperCase(),
-                      style: TextStyle(
-                        color: kColorWhite,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 30.0),
-                      child: Text(
-                        'You can search all superheroes and villians data from all universes.',
-                        style: TextStyle(
-                          color: kColorWhite,
-                          fontSize: 15,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            HeaderContent(),
             HeroListing(),
           ],
         ),
