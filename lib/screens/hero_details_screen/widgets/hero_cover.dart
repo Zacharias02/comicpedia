@@ -1,10 +1,10 @@
 import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:heropedia/constants/style.dart';
 import 'package:flutter/material.dart';
 import 'package:heropedia/models/heroes/heroes_model.dart';
 import 'package:heropedia/screens/global_widgets/close_icon_button.dart';
+import 'package:heropedia/screens/hero_details_screen/widgets/hero_cover_image.dart';
 
 class HeroCover extends StatelessWidget {
   final Result hero;
@@ -44,56 +44,11 @@ class HeroCover extends StatelessWidget {
               child: Stack(
                 children: [
                   CloseIconButton(),
-                  HeroImage(
+                  HeroCoverImage(
                     heroTag: hero.heroId,
                     heroImageUrl: hero.imageUrl,
                   ),
                 ],
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class HeroImage extends StatelessWidget {
-  final String heroImageUrl;
-  final String heroTag;
-
-  const HeroImage({
-    Key key,
-    @required this.heroImageUrl,
-    @required this.heroTag,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      bottom: 10,
-      left: 10,
-      child: Align(
-        alignment: Alignment.bottomLeft,
-        child: Container(
-          height: 210,
-          width: 150,
-          child: Hero(
-            tag: heroTag,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(8.0),
-              child: CachedNetworkImage(
-                fit: BoxFit.cover,
-                imageUrl: heroImageUrl,
-                progressIndicatorBuilder: (_, url, __) {
-                  return Center(
-                    child: SpinKitFadingCircle(
-                      size: 40,
-                      color: kColorLightGrey,
-                    ),
-                  );
-                },
-                errorWidget: (context, url, error) => Icon(Icons.error),
               ),
             ),
           ),
