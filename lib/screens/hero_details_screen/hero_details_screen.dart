@@ -52,9 +52,18 @@ class HeroDetailsScreen extends StatelessWidget {
               ),
               body: TabBarView(
                 children: [
-                  Text('LEFT'),
-                  Text('RIGHT'),
-                  Text('RIGHT'),
+                  Text(
+                    '1',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  Text(
+                    '2',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  Text(
+                    '3',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ],
               ),
             ),
