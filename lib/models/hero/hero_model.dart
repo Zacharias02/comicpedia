@@ -212,22 +212,3 @@ class HeroImage {
 
   Map<String, dynamic> toJson() => _$HeroImageToJson(this);
 }
-
-// class AllHero {
-//   final Map<String, Result> heroListResult;
-
-//   AllHero(this.heroListResult);
-
-//   factory AllHero.toList(Map<String, Result> list) {
-//     print('LKAJUSDLKJALKSJD: ${list['results']}');
-//   }
-
-//   // AllHero.fromJson(Map<String, dynamic> json)
-//   //     : heroMap = json.map((String k, dynamic v) {
-//   //         print('HAHAHA: $k, $v');
-
-//   //         // return MapEntry(k, Hero.fromJson(v));
-//   //       });
-
-//   // List<Result> get getList => heroListResult;
-// }
