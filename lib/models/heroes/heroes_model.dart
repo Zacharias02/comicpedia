@@ -75,6 +75,10 @@ class Result {
       ? double.parse(powerStats?.intelligence) * 0.01
       : 0;
 
+  double get strengthPercentage => (powerStats?.strength != 'null')
+      ? double.parse(powerStats?.strength) * 0.01
+      : 0;
+
   // String get heroName {
   //   String heroName = '';
   //   results.forEach((element) {
