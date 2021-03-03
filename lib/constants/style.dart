@@ -12,6 +12,7 @@ const kColorLightGrey2 = Color(0xFFF8B8989);
 const kColorDCBlue = Color(0xFFF0376F2);
 const kColorMarvelRed = Color(0xFFFED1D24);
 const kColorIntViolet = Color(0xFFF8A56FF);
+const kColorStrRed = Color(0xFFFE62E0D);
 
 /* Text Style */
 const kTextHeader1 = TextStyle(

@@ -70,11 +70,16 @@ class Result {
   String get firstAppearance => (biography?.firstAppearance != 'null')
       ? biography?.firstAppearance
       : 'Unknown';
+  String get intelligenceCenterText => (powerStats?.intelligence != 'null')
+      ? 'Intelligence: ${powerStats?.intelligence}'
+      : 'Intelligence: N/A';
+  String get strengthCenterText => (powerStats?.strength != 'null')
+      ? 'Strength: ${powerStats?.strength}'
+      : 'Strength: N/A';
 
   double get intelligencePercentage => (powerStats?.intelligence != 'null')
       ? double.parse(powerStats?.intelligence) * 0.01
       : 0;
-
   double get strengthPercentage => (powerStats?.strength != 'null')
       ? double.parse(powerStats?.strength) * 0.01
       : 0;

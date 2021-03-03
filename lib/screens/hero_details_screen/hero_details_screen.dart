@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:heropedia/constants/style.dart';
 import 'package:flutter/material.dart';
 import 'package:heropedia/models/heroes/heroes_model.dart';
@@ -46,7 +45,16 @@ class HeroDetailsScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         PowerStatIndicator(
+                          centerText: hero.intelligenceCenterText,
                           percentage: hero.intelligencePercentage,
+                          imageUrl: 'assets/images/intelligence.png',
+                          progressColor: kColorIntViolet,
+                        ),
+                        PowerStatIndicator(
+                          centerText: hero.strengthCenterText,
+                          percentage: hero.strengthPercentage,
+                          imageUrl: 'assets/images/strength.png',
+                          progressColor: kColorStrRed,
                         ),
                       ],
                     ),
@@ -71,14 +79,16 @@ class HeroDetailsScreen extends StatelessWidget {
 
 class PowerStatIndicator extends StatelessWidget {
   final String centerText;
-  final String image;
+  final String imageUrl;
   final double percentage;
+  final Color progressColor;
 
   const PowerStatIndicator({
     Key key,
     this.centerText,
-    this.image,
+    this.imageUrl,
     this.percentage = 0,
+    this.progressColor,
   }) : super(key: key);
 
   @override
@@ -89,21 +99,19 @@ class PowerStatIndicator extends StatelessWidget {
       percent: percentage,
       animation: true,
       animationDuration: 500,
-      progressColor: kColorIntViolet,
+      progressColor: progressColor,
       backgroundColor: kColorDarkrGreyLight,
       center: Text(
-        'Intelligence: 80',
+        centerText,
         style: kTextSemiBold.copyWith(fontSize: 14),
       ),
       leading: Container(
         height: 70,
         child: ClipPolygon(
           sides: 6,
-          borderRadius: 5.0, // Default 0.0 degrees
-          rotate: 90.0, // Default 0.0 degrees
-          child: Image.asset(
-            'assets/images/intelligence.png',
-          ),
+          borderRadius: 5.0,
+          rotate: 90.0,
+          child: Image.asset(imageUrl),
         ),
       ),
     );
