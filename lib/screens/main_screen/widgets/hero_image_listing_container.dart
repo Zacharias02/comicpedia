@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:heropedia/constants/style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:heropedia/screens/global_widgets/custom_chip.dart';
 
 class HeroImageListingContainer extends StatelessWidget {
   final String heroId;
@@ -47,23 +48,7 @@ class HeroImageListingContainer extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(right: 4.0, bottom: 5.0),
-              child: Align(
-                alignment: Alignment.bottomRight,
-                child: Container(
-                  padding: EdgeInsets.all(6.0),
-                  decoration: BoxDecoration(
-                    color: kColorDarkGrey.withOpacity(0.75),
-                    borderRadius: BorderRadius.circular(25.0),
-                  ),
-                  child: Text(
-                    heroFullName,
-                    style: kTextSemiBold.copyWith(fontSize: 15),
-                  ),
-                ),
-              ),
-            ),
+            CustomChip(content: heroFullName),
           ],
         ),
       ),

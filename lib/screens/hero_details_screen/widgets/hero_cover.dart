@@ -4,7 +4,9 @@ import 'package:heropedia/constants/style.dart';
 import 'package:flutter/material.dart';
 import 'package:heropedia/models/heroes/heroes_model.dart';
 import 'package:heropedia/screens/global_widgets/close_icon_button.dart';
+import 'package:heropedia/screens/global_widgets/custom_chip.dart';
 import 'package:heropedia/screens/hero_details_screen/widgets/hero_cover_image.dart';
+import 'package:heropedia/services/utils.dart';
 
 class HeroCover extends StatelessWidget {
   final Result hero;
@@ -16,6 +18,8 @@ class HeroCover extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Utils _utils = Utils();
+
     return Container(
       height: MediaQuery.of(context).size.height * 0.45,
       decoration: BoxDecoration(
@@ -44,9 +48,48 @@ class HeroCover extends StatelessWidget {
               child: Stack(
                 children: [
                   CloseIconButton(),
-                  HeroCoverImage(
-                    heroTag: hero.heroId,
-                    heroImageUrl: hero.imageUrl,
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 8.0, left: 10.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        HeroCoverImage(
+                          heroTag: hero.heroId,
+                          heroImageUrl: hero.imageUrl,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 10.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              CustomChip(
+                                content: hero.publisherName,
+                                color: _utils.getColorByPublisherName(
+                                  hero.publisherName,
+                                ),
+                              ),
+                              SizedBox(height: 5.0),
+                              Text(
+                                hero.heroFullName,
+                                style: kTextHeader1.copyWith(fontSize: 24),
+                              ),
+                              Container(
+                                padding: EdgeInsets.only(
+                                  bottom: 10.0,
+                                  top: 6.0,
+                                ),
+                                width: 150,
+                                child: Text(
+                                  hero.firstAppearance,
+                                  style: kTextLight,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

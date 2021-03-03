@@ -15,32 +15,25 @@ class HeroCoverImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      bottom: 10,
-      left: 10,
-      child: Align(
-        alignment: Alignment.bottomLeft,
-        child: Container(
-          height: 210,
-          width: 150,
-          child: Hero(
-            tag: heroTag,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(8.0),
-              child: CachedNetworkImage(
-                fit: BoxFit.cover,
-                imageUrl: heroImageUrl,
-                progressIndicatorBuilder: (_, url, __) {
-                  return Center(
-                    child: SpinKitFadingCircle(
-                      size: 40,
-                      color: kColorLightGrey,
-                    ),
-                  );
-                },
-                errorWidget: (context, url, error) => Icon(Icons.error),
-              ),
-            ),
+    return Container(
+      height: 210,
+      width: 150,
+      child: Hero(
+        tag: heroTag,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(8.0),
+          child: CachedNetworkImage(
+            fit: BoxFit.cover,
+            imageUrl: heroImageUrl,
+            progressIndicatorBuilder: (_, url, __) {
+              return Center(
+                child: SpinKitFadingCircle(
+                  size: 40,
+                  color: kColorLightGrey,
+                ),
+              );
+            },
+            errorWidget: (context, url, error) => Icon(Icons.error),
           ),
         ),
       ),

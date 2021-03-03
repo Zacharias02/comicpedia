@@ -65,6 +65,11 @@ class Result {
   String get heroId => id ?? '';
   String get imageUrl => heroImage?.url;
   String get heroFullName => heroName ?? '';
+  String get publisherName =>
+      (biography?.publisher != 'null') ? biography?.publisher : 'Unknown';
+  String get firstAppearance => (biography?.firstAppearance != 'null')
+      ? biography?.firstAppearance
+      : 'Unknown';
 
   // String get heroName {
   //   String heroName = '';

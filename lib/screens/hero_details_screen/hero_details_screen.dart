@@ -26,27 +26,14 @@ class HeroDetailsScreen extends StatelessWidget {
               appBar: PreferredSize(
                 preferredSize: Size.fromHeight(35.0),
                 child: TabBar(
-                  labelStyle: TextStyle(color: Colors.white),
-                  // unselectedLabelColor: kColorDarkGrey,
+                  labelStyle: kTextSemiBold,
+                  unselectedLabelStyle: kTextRegular.copyWith(fontSize: 16),
+                  unselectedLabelColor: kColorLightGrey2,
+                  indicatorColor: kColorWhite,
                   tabs: <Widget>[
-                    Tab(
-                      child: Text(
-                        'Description',
-                        style: TextStyle(fontSize: 15.0),
-                      ),
-                    ),
-                    Tab(
-                      child: Text(
-                        'Chapters',
-                        style: TextStyle(fontSize: 15.0),
-                      ),
-                    ),
-                    Tab(
-                      child: Text(
-                        'Comments',
-                        style: TextStyle(fontSize: 15.0),
-                      ),
-                    ),
+                    Tab(text: 'Powerstats'),
+                    Tab(text: 'Biography'),
+                    Tab(text: 'Others'),
                   ],
                 ),
               ),

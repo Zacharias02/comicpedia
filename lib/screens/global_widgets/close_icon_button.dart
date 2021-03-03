@@ -18,7 +18,7 @@ class CloseIconButton extends StatelessWidget {
           elevation: 0,
           backgroundColor: kColorBlack.withOpacity(0.50),
           onPressed: () => Navigator.of(context).pop(),
-          child: Icon(Icons.close),
+          child: Icon(Icons.close, color: kColorLightGrey1),
         ),
       ),
     );
