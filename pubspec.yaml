@@ -35,6 +35,8 @@ dependencies:
   cached_network_image: ^2.5.0
   reactive_forms: ^9.0.1
   flutter_spinkit: ^4.1.2
+  percent_indicator: ^2.1.9+1
+  polygon_clipper: ^1.0.2
   
 dev_dependencies:
   flutter_test:
@@ -55,8 +57,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/images/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

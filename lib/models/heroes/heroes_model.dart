@@ -71,6 +71,10 @@ class Result {
       ? biography?.firstAppearance
       : 'Unknown';
 
+  double get intelligencePercentage => (powerStats?.intelligence != 'null')
+      ? double.parse(powerStats?.intelligence) * 0.01
+      : 0;
+
   // String get heroName {
   //   String heroName = '';
   //   results.forEach((element) {
