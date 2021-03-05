@@ -67,7 +67,8 @@ class Result {
   String get heroFullName => heroName ?? '';
 
   /* -- Power stats -- */
-  String get firstAppearance => (biography?.firstAppearance != 'null')
+  String get firstAppearance => (biography?.firstAppearance != 'null' &&
+          biography?.firstAppearance != '-')
       ? biography?.firstAppearance
       : 'Unknown';
   String get intelligenceCenterText => (powerStats?.intelligence != 'null')
@@ -123,7 +124,9 @@ class Result {
           ? biography?.placeOfBirth
           : 'Unknown';
   String get publisherName =>
-      (biography?.publisher != 'null') ? biography?.publisher : 'Unknown';
+      (biography?.publisher != 'null' && biography?.publisher != '')
+          ? biography?.publisher
+          : 'Unknown';
   String get heroAlignment => (biography?.alignment != 'null')
       ? "${biography.alignment[0].toUpperCase()}${biography.alignment.substring(1)}"
       : 'Unknown';
