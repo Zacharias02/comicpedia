@@ -76,12 +76,36 @@ class Result {
   String get strengthCenterText => (powerStats?.strength != 'null')
       ? 'Strength: ${powerStats?.strength}'
       : 'Strength: N/A';
+  String get speedCenterText => (powerStats?.speed != 'null')
+      ? 'Speed: ${powerStats?.speed}'
+      : 'Speed: N/A';
+  String get durabilityCenterText => (powerStats?.durability != 'null')
+      ? 'Durability: ${powerStats?.durability}'
+      : 'Durability: N/A';
+  String get powerCenterText => (powerStats?.power != 'null')
+      ? 'Power: ${powerStats?.power}'
+      : 'Power: N/A';
+  String get combatCenterText => (powerStats?.combat != 'null')
+      ? 'Combat: ${powerStats?.combat}'
+      : 'Combat: N/A';
 
   double get intelligencePercentage => (powerStats?.intelligence != 'null')
       ? double.parse(powerStats?.intelligence) * 0.01
       : 0;
   double get strengthPercentage => (powerStats?.strength != 'null')
       ? double.parse(powerStats?.strength) * 0.01
+      : 0;
+  double get speedPercentage => (powerStats?.speed != 'null')
+      ? double.parse(powerStats?.speed) * 0.01
+      : 0;
+  double get durabilityPercentage => (powerStats?.durability != 'null')
+      ? double.parse(powerStats?.durability) * 0.01
+      : 0;
+  double get powerPercentage => (powerStats?.power != 'null')
+      ? double.parse(powerStats?.power) * 0.01
+      : 0;
+  double get combatPercentage => (powerStats?.combat != 'null')
+      ? double.parse(powerStats?.combat) * 0.01
       : 0;
 
   // String get heroName {
