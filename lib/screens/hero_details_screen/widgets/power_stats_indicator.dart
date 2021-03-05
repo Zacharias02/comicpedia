@@ -21,7 +21,7 @@ class PowerStatIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return LinearPercentIndicator(
       padding: EdgeInsets.symmetric(horizontal: 18.0),
-      lineHeight: 22.0,
+      lineHeight: 19.0,
       percent: percentage,
       animation: true,
       animationDuration: 500,
@@ -29,7 +29,7 @@ class PowerStatIndicator extends StatelessWidget {
       backgroundColor: kColorDarkrGreyLight,
       center: Text(
         centerText,
-        style: kTextSemiBold.copyWith(fontSize: 14),
+        style: kTextSemiBold.copyWith(fontSize: 12),
       ),
       leading: Container(
         height: 55,
