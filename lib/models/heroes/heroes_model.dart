@@ -65,8 +65,8 @@ class Result {
   String get heroId => id ?? '';
   String get imageUrl => heroImage?.url;
   String get heroFullName => heroName ?? '';
-  String get publisherName =>
-      (biography?.publisher != 'null') ? biography?.publisher : 'Unknown';
+
+  /* -- Power stats -- */
   String get firstAppearance => (biography?.firstAppearance != 'null')
       ? biography?.firstAppearance
       : 'Unknown';
@@ -107,29 +107,68 @@ class Result {
   double get combatPercentage => (powerStats?.combat != 'null')
       ? double.parse(powerStats?.combat) * 0.01
       : 0;
+  /* -- End power stats -- */
 
-  // String get heroName {
-  //   String heroName = '';
-  //   results.forEach((element) {
-  //     heroName = element?.heroName;
-  //   });
+  /* -- Biography -- */
+  String get heroRealName =>
+      (biography?.fullName != '') ? biography?.fullName : 'Unknown';
+  String get heroAlterEgo =>
+      (biography?.alterEgos != 'null') ? biography?.alterEgos : 'N/A';
+  String get heroAliases =>
+      (biography.aliases.length != 0 && biography?.aliases?.first != '-')
+          ? biography.aliases.join(", ")
+          : 'No aliases found.';
+  String get heroBirthplace =>
+      (biography?.placeOfBirth != '' && biography?.placeOfBirth != '-')
+          ? biography?.placeOfBirth
+          : 'Unknown';
+  String get publisherName =>
+      (biography?.publisher != 'null') ? biography?.publisher : 'Unknown';
+  String get heroAlignment => (biography?.alignment != 'null')
+      ? "${biography.alignment[0].toUpperCase()}${biography.alignment.substring(1)}"
+      : 'Unknown';
+  /* -- End biography -- */
 
-  //   return heroName;
-  // }
-  // String get rarity => results?.first?.heroName;
-  // String get timeAvailable => availability?.time;
-  // String get northernMonths => availability?.northernMonths ?? '';
-  // String get southernMonths => availability?.southernMonths ?? '';
-  // String get location => availability?.location ?? 'Unknown';
+  /* -- Appearance -- */
+  String get heroGender =>
+      (appearance?.gender != 'null') ? appearance?.gender : 'Unknown';
+  String get heroRace =>
+      (appearance?.race != 'null') ? appearance?.race : 'Unknown';
+  String get heroHeight =>
+      (appearance.height.length != 0 && appearance?.height?.first != '-')
+          ? appearance.height.join(" / ")
+          : 'Unknown';
+  String get heroWeight =>
+      (appearance.weight.length != 0 && appearance?.weight?.first[0] != '-')
+          ? appearance.weight.join(" / ")
+          : 'Unknown';
+  String get heroEyeColor => (appearance?.eyeColor != 'null')
+      ? "${appearance.eyeColor[0].toUpperCase()}${appearance.eyeColor.substring(1)}"
+      : 'Unknown';
+  String get heroHairColor => (appearance?.hairColor != 'null')
+      ? "${appearance.hairColor[0].toUpperCase()}${appearance.hairColor.substring(1)}"
+      : 'Unknown';
+  /* -- End appearance -- */
 
-  // bool get isAllDay => availability?.isAllDay ?? false;
-  // bool get isAllYear => availability?.isAllYear ?? false;
+  /* -- Work -- */
+  String get heroOccupation =>
+      (work?.occupation != 'null' && work?.occupation != '-')
+          ? work?.occupation
+          : 'Unknown';
+  String get heroBase =>
+      (work?.base != 'null' && work?.base != '-') ? work?.base : 'Unknown';
+  /* -- End work -- */
 
-  // String get getTimeAvailable => (isAllDay) ? 'All day' : timeAvailable;
-  // String get getMonthAvailableNorth =>
-  //     (isAllYear) ? 'All year' : northernMonths;
-  // String get getMonthAvailableSouth =>
-  //     (isAllYear) ? 'All year' : southernMonths;
+  /* -- Connections -- */
+  String get heroGroupAffiliation => (connections?.groupAffiliation != 'null' &&
+          connections?.groupAffiliation != '-')
+      ? connections?.groupAffiliation
+      : 'Unknown';
+  String get heroRelatives =>
+      (connections?.relatives != 'null' && connections?.relatives != '-')
+          ? connections?.relatives
+          : 'Unknown';
+  /* -- End connections -- */
 }
 
 @JsonSerializable()

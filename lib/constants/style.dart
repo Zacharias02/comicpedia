@@ -38,6 +38,13 @@ const kTextSemiBold = TextStyle(
   fontSize: 16,
 );
 
+const kTextBold = TextStyle(
+  fontWeight: FontWeight.w700,
+  fontFamily: 'Saira',
+  color: kColorWhite,
+  fontSize: 16,
+);
+
 const kTextLight = TextStyle(
   fontWeight: FontWeight.w300,
   fontFamily: 'Saira',
