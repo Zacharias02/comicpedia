@@ -6,12 +6,14 @@ class ReactiveInputField extends StatelessWidget {
   final String formControlName;
   final String hintText;
   final Icon prefixIcon;
+  final Widget suffixIcon;
 
   const ReactiveInputField({
     Key key,
     @required this.formControlName,
     this.hintText = 'Search',
     this.prefixIcon,
+    this.suffixIcon,
   }) : super(key: key);
 
   @override
@@ -26,6 +28,7 @@ class ReactiveInputField extends StatelessWidget {
           hintText: hintText,
           hintStyle: kTextSemiBold.copyWith(color: kColorLightGrey),
           prefixIcon: prefixIcon,
+          suffixIcon: suffixIcon,
           filled: true,
           fillColor: kColorDarkrGreyLight,
           border: OutlineInputBorder(
