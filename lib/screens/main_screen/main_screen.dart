@@ -3,7 +3,6 @@ import 'package:heropedia/screens/main_screen/widgets/header_content.dart';
 import 'package:heropedia/screens/main_screen/widgets/hero_listing.dart';
 import 'package:heropedia/screens/main_screen/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:reactive_forms/reactive_forms.dart';
 
 class MainScreen extends StatelessWidget {
   final String title;
@@ -17,15 +16,13 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kColorDarkGrey,
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SearchBar(),
-            HeaderContent(),
-            HeroListing(),
-          ],
-        ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SearchBar(),
+          HeaderContent(),
+          HeroListing(),
+        ],
       ),
     );
   }

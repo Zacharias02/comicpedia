@@ -5,10 +5,10 @@ class HeroRepository {
   HeroRepository();
 
   static const _baseUrl =
-      'https://superheroapi.com/api/3778234892222363/search/hulk';
+      'https://superheroapi.com/api/3778234892222363/search/';
 
-  Future<Heroes> getHeroes() async {
-    final response = await Dio().get(_baseUrl);
+  Future<Heroes> getHeroes(String searchKey) async {
+    final response = await Dio().get(_baseUrl + searchKey);
     return Heroes.fromJson(response.data);
   }
 }

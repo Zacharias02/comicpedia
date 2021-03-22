@@ -20,9 +20,16 @@ class HeroesBloc extends Bloc<HeroesEvent, HeroesState> {
       yield HeroesLoading();
 
       try {
-        final Heroes heroes = await heroRepository.getHeroes();
+        final Heroes heroes = await heroRepository.getHeroes(event.searchKey);
 
-        yield HeroesFetched(heroResult: heroes?.heroList);
+        if (heroes.response != 'error') {
+          yield HeroesFetched(heroResult: heroes?.heroList);
+        } else {
+          print('error');
+          yield HeroesFetchError(
+            errorMessage: '${event.searchKey} is not exists.',
+          );
+        }
       } catch (err) {
         print(err.toString());
         yield HeroesFetchError(errorMessage: err.toString());

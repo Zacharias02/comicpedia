@@ -7,4 +7,7 @@ abstract class HeroesEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class FetchHeroes extends HeroesEvent {}
+class FetchHeroes extends HeroesEvent {
+  final String searchKey;
+  FetchHeroes(this.searchKey);
+}

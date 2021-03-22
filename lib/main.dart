@@ -4,6 +4,8 @@ import 'package:heropedia/screens/main_screen/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'blocs/heroes_bloc/heroes_bloc.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -14,22 +16,12 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  HeroRepository heroRepository;
-  HeroesBloc heroesBloc;
-
-  @override
-  void initState() {
-    heroRepository = HeroRepository();
-    heroesBloc = HeroesBloc(heroRepository);
-
-    heroesBloc.add(FetchHeroes());
-    super.initState();
-  }
+  HeroRepository heroRepository = HeroRepository();
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider<HeroesBloc>(
-      create: (context) => heroesBloc,
+      create: (context) => HeroesBloc(heroRepository),
       child: MaterialApp(
         title: 'Comicpedia',
         debugShowCheckedModeBanner: false,

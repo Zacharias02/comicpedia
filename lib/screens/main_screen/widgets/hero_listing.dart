@@ -59,6 +59,17 @@ class HeroListing extends StatelessWidget {
           );
         }
 
+        if (state is HeroesFetchError) {
+          widget = Expanded(
+            child: Center(
+              child: Text(
+                state.errorMessage,
+                style: kTextRegular,
+              ),
+            ),
+          );
+        }
+
         return widget;
       },
     );
