@@ -4,7 +4,6 @@ import 'package:reactive_forms/reactive_forms.dart';
 import 'package:heropedia/screens/global_widgets/reactive_input_field.dart';
 import 'package:heropedia/constants/style.dart';
 import 'package:heropedia/blocs/heroes_bloc/heroes_bloc.dart';
-import 'package:heropedia/repositories/hero_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchBar extends StatefulWidget {

@@ -19,6 +19,14 @@ class HeroesFetched extends HeroesState {
   List<Object> get props => [heroResult];
 }
 
+class HeroesEmptyList extends HeroesState {
+  final String message;
+  HeroesEmptyList({this.message});
+
+  @override
+  List<Object> get props => [message];
+}
+
 class HeroesFetchError extends HeroesState {
   final String errorMessage;
   HeroesFetchError({this.errorMessage});

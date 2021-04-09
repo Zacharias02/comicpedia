@@ -1,16 +1,29 @@
 import 'package:heropedia/blocs/heroes_bloc/heroes_bloc.dart';
 import 'package:heropedia/constants/style.dart';
 import 'package:heropedia/models/heroes/heroes_model.dart';
+import 'package:heropedia/screens/global_widgets/empty_error_placeholder.dart';
 import 'package:heropedia/screens/hero_details_screen/hero_details_screen.dart';
 import 'package:heropedia/screens/main_screen/widgets/hero_image_listing_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:heropedia/services/snackbar_services.dart';
 
 class HeroListing extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HeroesBloc, HeroesState>(
+    final SnackBarServices _snackBarServices = SnackBarServices();
+
+    return BlocConsumer<HeroesBloc, HeroesState>(
+      listener: (context, state) {
+        _snackBarServices.removeSnackBar(context);
+
+        if (state is HeroesEmptyList) {
+          _snackBarServices.showSnackBar(context, message: state.message);
+        } else if (state is HeroesFetchError) {
+          _snackBarServices.showSnackBar(context, message: state.errorMessage);
+        }
+      },
       builder: (context, state) {
         Widget widget = SizedBox.shrink();
 
@@ -22,12 +35,6 @@ class HeroListing extends StatelessWidget {
               ),
             ),
           );
-        }
-
-        if (state is HeroesFetchError) {
-          final String message = state.errorMessage;
-
-          widget = Center(child: Text(message));
         }
 
         if (state is HeroesFetched) {
@@ -59,14 +66,17 @@ class HeroListing extends StatelessWidget {
           );
         }
 
+        if (state is HeroesEmptyList) {
+          widget = EmptyErrorPlaceholder(
+            iconData: Icons.find_in_page,
+            message: state.message,
+          );
+        }
+
         if (state is HeroesFetchError) {
-          widget = Expanded(
-            child: Center(
-              child: Text(
-                state.errorMessage,
-                style: kTextRegular,
-              ),
-            ),
+          widget = EmptyErrorPlaceholder(
+            iconData: Icons.warning,
+            message: state.errorMessage,
           );
         }
 

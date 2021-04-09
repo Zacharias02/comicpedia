@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
+import 'package:dio/dio.dart';
 import 'package:heropedia/models/heroes/heroes_model.dart';
 import 'package:heropedia/repositories/hero_repository.dart';
 import 'package:equatable/equatable.dart';
@@ -25,10 +26,26 @@ class HeroesBloc extends Bloc<HeroesEvent, HeroesState> {
         if (heroes.response != 'error') {
           yield HeroesFetched(heroResult: heroes?.heroList);
         } else {
-          print('error');
+          print('empty');
+          yield HeroesEmptyList(message: '"${event.searchKey}" is not exists.');
+        }
+      } on DioError catch (e) {
+        if (e.type == DioErrorType.RESPONSE) {
           yield HeroesFetchError(
-            errorMessage: '${event.searchKey} is not exists.',
+            errorMessage: 'Something went wrong.[${e.response.statusCode}]',
           );
+        } else if (e.type == DioErrorType.DEFAULT ||
+            e.type == DioErrorType.CONNECT_TIMEOUT) {
+          yield HeroesFetchError(
+            errorMessage: 'Please check your internet connection.',
+          );
+
+          if (e.type == DioErrorType.CONNECT_TIMEOUT) {
+            final CancelToken token = CancelToken();
+            token.cancel("cancelled");
+          }
+        } else {
+          yield HeroesFetchError(errorMessage: 'Something went wrong.');
         }
       } catch (err) {
         print(err.toString());
